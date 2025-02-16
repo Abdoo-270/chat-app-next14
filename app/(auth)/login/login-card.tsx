@@ -1,0 +1,35 @@
+"use client";
+import Link from "next/link";
+import { Button } from "../../../components/ui/button";
+import Image from "next/image";
+import authAction from "../../../lib/actions"
+import { useFormStatus } from "react-dom";
+
+export default function LoginCard() {
+  return (
+    <>
+      <form className="space-y-4" action={authAction}>
+        <LoginButton />
+      </form>
+      <div className="mt-4 text-center text-[13px]">
+        <span>New To QuickChat? </span>
+        <Link
+          className="text-blue-500 hover:underline text-[13px] mr-1"
+          href="/signup"
+        >
+          Sign Up
+        </Link>
+      </div>
+    </>
+  );
+}
+
+function LoginButton() {
+  const {pending} = useFormStatus()
+  return (
+    <Button className="w-full flex gap-2" disabled={pending}>
+      <Image src={"/logo-white.svg"} width={20} height={20} alt="Github logo" /> Log
+      in with Github
+    </Button>
+  );
+}
