@@ -42,18 +42,18 @@ export const getUsersForSidebar = async (authUserId: string) => {
 	}
 };
 
-// export const getUserProfile = async (userId: string) => {
-// 	noStore();
-// 	try {
-// 		await connectToMongoDB();
-// 		const user: IUserDocument | null = await User.findById(userId);
-// 		if (!user) throw new Error("User not found");
-// 		return user;
-// 	} catch (error) {
-// 		console.log("Error in getUserProfile: ", error);
-// 		throw error;
-// 	}
-// };
+export const getUserProfile = async (userId: string) => {
+	noStore();
+	try {
+		await connectToMongoDB();
+		const user: IUserDocument | null = await User.findById(userId);
+		if (!user) throw new Error("User not found");
+		return user;
+	} catch (error) {
+		console.log("Error in getUserProfile: ", error);
+		throw error;
+	}
+};
 
 // export const getMessages = async (authUserId: string, otherUserId: string) => {
 // 	noStore();
